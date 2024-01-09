@@ -1,17 +1,25 @@
 <table id="example" class="table table-hover" style="width:100%">
     <thead class="bg-light">
         <tr>
-            <th>id</th>
+            <th>nim</th>
             <th>nama</th>
-            <th>time</th>
+            <th>tgl lahir</th>
+            <th>hobi</th>
+            <th>cita</th>
+            <th>pesan</th>
+            <th>role</th>
         </tr>
     </thead>
     <tbody>
         <% users.forEach(user => { %>
         <tr>
-            <td><%= user.id %></td>
+            <td><%= user.nim %></td>
             <td><%= user.nama %></td>
-            <td><%= user.created_at%></td>
+            <td><%= user.ttl%></td>
+            <td><%= user.hobi%></td>
+            <td><%= user.cita%></td>
+            <td><%= user.pesan%></td>
+            <td><%= user.role%></td>
         </tr>
         <% }); %>
     </tbody>

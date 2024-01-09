@@ -12,9 +12,23 @@ const getAllUsers = async (req, res)  => {
 
 const createNewUser = async (req, res) => {
     try {
+        const nim = parseInt(req.body.nim);
+
+        if (isNaN(nim)) {
+        
+            req.flash('error', 'NIM harus berupa angka.');
+            return res.redirect('/admin');
+        }
         const userData = {
+            nim: nim,
             nama: req.body.nama,
-            // Tambahkan data
+            ttl: req.body.tgl_lahir,
+            cita: req.body.cita,
+            hobi: req.body.hobi,
+            role: req.body.role,
+            sandi: req.body.sandi,
+            pesan: req.body.pesan
+            
         };
         const result = await mainModel.createNewUser(userData);
         if (result) {
