@@ -1,3 +1,4 @@
+//db.js
 const { createClient } = require('@supabase/supabase-js');
 
 const supabaseUrl = process.env.DATABASE_URL;

@@ -9,7 +9,7 @@ const flash = require('express-flash')
 const session = require('express-session')
 const methodOverride = require('method-override')
 const app = express();
-const mahasiswa = require('./mahasiswa.controller');
+const mahasiswa = require('./mahasiswa/mahasiswa.controller');
 
 
 const port = process.env.PORT;
