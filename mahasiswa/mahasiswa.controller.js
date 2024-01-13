@@ -1,6 +1,6 @@
 //mahasiswa.controller.js
 var express = require('express');
-const { getAllUsers, getUserById } = require('./mahasiswa.service');
+const { getAllUsers, getUserById, createUser } = require('./mahasiswa.service');
 var router = express.Router();
 const { v4: uuidv4, validate: uuidValidate } = require('uuid');
 
@@ -20,14 +20,26 @@ router.get('/:id', async (req, res) =>{
         }
 
         res.send(user);
-    } catch (err) {
-        res.status(400).send(err.message);
+    } catch (error) {
+        res.status(400).send(error.message);
     }
 });
 
-// router.post('/', async (req, res) => {
+router.post('/', async (req, res) => {
+    try {
+        const newUserData = req.body;
+        
+        const mahasiswa = await createUser(newUserData);
 
-// });
+        res.send({
+            data: mahasiswa,
+            message: "create user success",
+          });
+
+    } catch (error) {
+        res.status(400).send(error.message);
+    }
+});
 
 // router.patch('/:id', async (req, res) => {
 

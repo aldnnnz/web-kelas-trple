@@ -1,4 +1,4 @@
-const { findUsers, findUsersByid } = require("./mahasiswa.repository")
+const { findUsers, findUsersByid, insertUser } = require("./mahasiswa.repository")
 
 //mahasiswa.service.js
 const getAllUsers = async () => {
@@ -12,14 +12,19 @@ const getUserById = async (id) => {
         if (!mahasiswa || mahasiswa.length === 0) {
             throw new Error("Mahasiswa not found");
         }
-
         return mahasiswa;
     } catch (error) {
         throw error; 
     }
 };
 
+const createUser = async (newUser) => {
+    const mahasiswa = await insertUser(newUser);
+
+    return mahasiswa;
+};
 module.exports = {
     getAllUsers,
     getUserById,
+    createUser,
 }
